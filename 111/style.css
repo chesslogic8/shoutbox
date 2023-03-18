@@ -1,0 +1,57 @@
+/* Set font and background colors */
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+/* Set width and center the shoutbox */
+.shoutbox {
+    width: 500px;
+    margin: 0 auto;
+}
+
+/* Style the input field and submit button */
+.shoutbox input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.shoutbox input[type="submit"] {
+    width: 18%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.shoutbox input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+/* Style the message container */
+.shoutbox .messages {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Style individual messages */
+.shoutbox .message {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.shoutbox .message:nth-child(odd) {
+    background-color: #fff;
+}

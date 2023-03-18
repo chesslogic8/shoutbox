@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments Archive</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Comments Archive</h1>
+        <div id="archive">
+            <!-- Comments will be appended here -->
+        </div>
+        <div id="pagination">
+            <!-- Pagination buttons will be appended here -->
+        </div>
+    </div>
+    <script>
+        function loadPage(page) {
+            $.getJSON('archive.php?page=' + page, function(data) {
+                $('#archive').empty();
+                $.each(data.comments, function(_, comment) {
+                    $('#archive').append('<p>' + comment.message + '</p>');
+                });
+
+                $('#pagination').empty();
+                for (var i = 1; i <= data.total_pages; i++) {
+                    var button = $('<button>' + i + '</button>');
+                    button.click(function() {
+                        loadPage(i);
+                    });
+                    $('#pagination').append(button);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            loadPage(1);
+        });
+    </script>
+</body>
+</html>
